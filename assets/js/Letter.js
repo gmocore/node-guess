@@ -1,11 +1,22 @@
-const index = require("./index");
+const Word = require("./Word");
+const prompt = require("prompt");
+
+prompt.start();
+console.log("enter a guess");
+
+prompt.get("guess", (err, result) => {
+  if (err) throw new err();
+  console.log("user guess: ", result.guess);
+});
 
 const Letter = function() {
-  this.word = index.wordSelection();
+  this.word = Word.wordSelection();
   this.guess = process.argv[2];
+  this.guessedBoolean = false;
   this.splitLetters = this.word.split("");
   this.wordBlank = [];
   this.remainingGuesses = this.splitLetters.length;
+
   for (var position in this.splitLetters) {
     this.wordBlank[position] = "_ ";
   }
@@ -15,9 +26,6 @@ const Letter = function() {
       this.remainingGuesses--;
     }
   }
-
-  console.log(this.wordBlank);
-  console.log(this.word, this.guess, this.splitLetters);
 };
 
 let newWord = new Letter();

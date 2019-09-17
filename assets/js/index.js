@@ -13,6 +13,5 @@ module.exports = {
     let currentWord =
       wordChoices[Math.floor(Math.random() * wordChoices.length)];
     return currentWord;
-    console.log(currentWord);
   }
 };
