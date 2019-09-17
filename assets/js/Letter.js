@@ -7,13 +7,15 @@ console.log("enter a guess");
 prompt.get("guess", (err, result) => {
   if (err) throw new err();
   console.log("user guess: ", result.guess);
+  let newWord = new Letter(result.guess);
+  console.log(newWord);
 });
 
-const Letter = function() {
+const Letter = function(guess) {
   this.word = Word.wordSelection();
-  this.guess = process.argv[2];
+  this.guess = guess;
   this.guessedBoolean = false;
-  this.splitLetters = this.word.split("");
+  this.splitLetters = [...this.word];
   this.wordBlank = [];
   this.remainingGuesses = this.splitLetters.length;
 
@@ -28,5 +30,5 @@ const Letter = function() {
   }
 };
 
-let newWord = new Letter();
-console.log(newWord);
+// let newWord = new Letter();
+// console.log(newWord);
