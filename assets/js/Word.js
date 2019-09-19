@@ -1,15 +1,26 @@
-const wordSelection = function() {
-  const wordChoices = [
-    "se7en",
-    "zodiac",
-    "inception",
-    "goodfellas",
-    "casino",
-    "revolver",
-    "snatch"
-  ];
+const Letter = require("./Letter");
 
-  return wordChoices[Math.floor(Math.random() * wordChoices.length)];
-};
+function Word(answer) {
+  this.wordArray = [];
+  this.builtString = "";
 
-module.exports.wordSelection = wordSelection;
+  for (let i = 0; i < answer.length; i++) {
+    let letter = new Letter(answer[i]);
+    this.wordArray.push(letter);
+  }
+
+  this.displayWord = function() {
+    this.wordArray.forEach(item => {
+      this.builtString += item.value;
+    });
+    return this.builtString;
+  };
+
+  this.userGuess = function(input) {
+    for (var i = 0; i < this.wordArray.length; i++) {
+      this.wordArray[i].guess(input);
+    }
+  };
+}
+
+module.exports = Word;

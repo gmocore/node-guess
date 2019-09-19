@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
+    "inquirer": "^7.0.0",
     "prompt": "^1.0.0"
   },
   "devDependencies": {},
