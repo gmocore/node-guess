@@ -13,13 +13,6 @@ function Word(answer) {
     this.wordArray.forEach(item => {
       this.builtString += item.value;
     });
-    return this.builtString;
-  };
-
-  this.userGuess = function(input) {
-    for (var i = 0; i < this.wordArray.length; i++) {
-      this.wordArray[i].guess(input);
-    }
   };
 }
 

@@ -2,14 +2,16 @@ function Letter(value) {
   this.value = value;
   this.guessed = false;
 
-  this.toString = function(char) {
-    if (this.value === char) {
-      this.guessed = true;
-      console.log("match");
-      return char;
+  this.guess = function(guess) {
+    if (this.value === guess) {
+      this.guess = true;
+    }
+  };
+  this.toString = function() {
+    if (!this.guessed) {
+      this.value = "_";
     } else {
-      console.log("nope");
-      return "_";
+      return this.value;
     }
   };
 }

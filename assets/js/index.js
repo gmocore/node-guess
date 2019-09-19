@@ -34,9 +34,10 @@ function getUserPrompt() {
       word.displayWord();
       console.log(word.builtString);
       if (word.builtString.includes(userInput.input)) {
-        console.log("its a match?");
+        console.log("its a match");
       } else {
         console.log("nope");
+        getUserPrompt();
       }
     });
 }
