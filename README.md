@@ -16,9 +16,9 @@ Inquirer is used to get the user input from the command line as guesses.
 Recursion is used within the `getUserPrompt` function to create the game loop, where the user will continue to guess until they win or lose. at that point the user is prompted to play again. if they choose to play again, it triggers the `replay` function, which resets the game variables and calls a new game. if they choose not to play again, the application exits.
 
 - todo items:
-  [ ] validate input as letters
-  [ ] validate if user has already guessed a letter
-  [ ] display incorrectly guessed letters
+- [] validate input as letters
+- [] validate if user has already guessed a letter
+- [] display incorrectly guessed letters
 
 ## Built With
 
