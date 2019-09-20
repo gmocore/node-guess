@@ -1,10 +1,9 @@
 const inquirer = require("inquirer");
-const Letter = require("./Letter");
 const Word = require("./Word");
 
 const wordSelection = function() {
   const wordChoices = [
-    "se7en",
+    "prisoners",
     "zodiac",
     "inception",
     "goodfellas",
@@ -18,6 +17,8 @@ const wordSelection = function() {
 
 let chosenWord = wordSelection();
 let word = new Word(chosenWord);
+let remainingGuesses = 4;
+console.log(chosenWord);
 
 function getUserPrompt() {
   inquirer
@@ -29,17 +30,25 @@ function getUserPrompt() {
       }
     ])
     .then(userInput => {
-      console.log(userInput.input);
-      //   let response = new Letter(userInput.input);
-      word.displayWord();
-      word.guess(userInput);
-
-      //   if (word.builtString.includes(userInput.input)) {
-      //     console.log("its a match");
-      //   } else {
-      //     console.log("nope");
-      //     getUserPrompt();
-      //   }
+      //   word.guess(userInput.input);
+      //   word.displayWord();
+      if (word.guess(userInput.input)) {
+        if (chosenWord === word.displayWord()) {
+          console.log("youve done it");
+          return;
+        } else {
+          getUserPrompt();
+        }
+      } else {
+        remainingGuesses--;
+        if (remainingGuesses === 0) {
+          console.log("G A M E  O V E R");
+          return;
+        } else {
+          console.log("try another letter");
+          getUserPrompt();
+        }
+      }
     });
 }
 

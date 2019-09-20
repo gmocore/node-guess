@@ -1,27 +1,14 @@
 const Letter = require("./Letter");
 
 function Word(answer) {
-  // this.wordArray = [];
-  // this.builtString = "";
-
-  // for (let i = 0; i < answer.length; i++) {
-  //   let letter = new Letter(answer[i]);
-  //   this.wordArray.push(letter);
-  // }
-
-  // this.displayWord = function() {
-  //   this.wordArray.forEach(item => {
-  //     return (this.builtString += item.toString()) + " ";
-  //   });
-  // };
-
   this.wordArray = answer.split("").map(letter => new Letter(letter));
 
   this.displayWord = function() {
     let builtString = "";
     this.wordArray.forEach(item => (builtString += `${item.toString()} `));
+    console.log(builtString);
 
-    console.log("built string: ", builtString);
+    return builtString.split(" ").join("");
   };
 
   this.guess = function(userGuess) {
@@ -35,8 +22,10 @@ function Word(answer) {
 
     if (correct) {
       console.log("Correct!");
+      return true;
     } else {
       console.log("Incorrect!");
+      return false;
     }
   };
 }

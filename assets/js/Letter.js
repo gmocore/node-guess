@@ -4,7 +4,7 @@ function Letter(answer) {
 
   this.testGuess = function(guess) {
     if (this.answer === guess) {
-      this.guesssed = true;
+      this.guessed = true;
     }
   };
   this.toString = function() {
