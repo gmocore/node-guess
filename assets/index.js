@@ -19,6 +19,7 @@ let chosenWord = wordSelection();
 let word = new Word(chosenWord);
 let remainingGuesses = 4;
 console.log("Guess the name of the movie!");
+word.displayWord();
 
 function replay() {
   inquirer
@@ -34,15 +35,17 @@ function replay() {
         chosenWord = wordSelection();
         word = new Word(chosenWord);
         remainingGuesses = 4;
+        word.displayWord();
+
         getUserPrompt();
       } else {
+        console.log("Thank you for playing");
         return;
       }
     });
 }
 
 function getUserPrompt() {
-  //   word.displayWord();
   inquirer
     .prompt([
       {
@@ -57,7 +60,6 @@ function getUserPrompt() {
       if (guessed) {
         if (chosenWord === wordString) {
           console.log("youve done it");
-          //   return;
           replay();
         } else {
           getUserPrompt();
