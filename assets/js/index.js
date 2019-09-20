@@ -18,9 +18,31 @@ const wordSelection = function() {
 let chosenWord = wordSelection();
 let word = new Word(chosenWord);
 let remainingGuesses = 4;
-console.log(chosenWord);
+console.log("Guess the name of the movie!");
+
+function replay() {
+  inquirer
+    .prompt([
+      {
+        type: "confirm",
+        name: "confirm",
+        message: "play again?"
+      }
+    ])
+    .then(confirmation => {
+      if (confirmation.confirm) {
+        chosenWord = wordSelection();
+        word = new Word(chosenWord);
+        remainingGuesses = 4;
+        getUserPrompt();
+      } else {
+        return;
+      }
+    });
+}
 
 function getUserPrompt() {
+  //   word.displayWord();
   inquirer
     .prompt([
       {
@@ -30,12 +52,13 @@ function getUserPrompt() {
       }
     ])
     .then(userInput => {
-      //   word.guess(userInput.input);
-      //   word.displayWord();
-      if (word.guess(userInput.input)) {
-        if (chosenWord === word.displayWord()) {
+      let guessed = word.guess(userInput.input);
+      let wordString = word.displayWord();
+      if (guessed) {
+        if (chosenWord === wordString) {
           console.log("youve done it");
-          return;
+          //   return;
+          replay();
         } else {
           getUserPrompt();
         }
@@ -43,7 +66,7 @@ function getUserPrompt() {
         remainingGuesses--;
         if (remainingGuesses === 0) {
           console.log("G A M E  O V E R");
-          return;
+          replay();
         } else {
           console.log("try another letter");
           getUserPrompt();
