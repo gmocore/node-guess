@@ -32,13 +32,14 @@ function getUserPrompt() {
       console.log(userInput.input);
       //   let response = new Letter(userInput.input);
       word.displayWord();
-      console.log(word.builtString);
-      if (word.builtString.includes(userInput.input)) {
-        console.log("its a match");
-      } else {
-        console.log("nope");
-        getUserPrompt();
-      }
+      word.guess(userInput);
+
+      //   if (word.builtString.includes(userInput.input)) {
+      //     console.log("its a match");
+      //   } else {
+      //     console.log("nope");
+      //     getUserPrompt();
+      //   }
     });
 }
 
