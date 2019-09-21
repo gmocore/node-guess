@@ -16,11 +16,11 @@ Inquirer is used to get the user input from the command line as guesses.
 Recursion is used within the `getUserPrompt` function to create the game loop, where the user will continue to guess until they win or lose. at that point the user is prompted to play again. if they choose to play again, it triggers the `replay` function, which resets the game variables and calls a new game. if they choose not to play again, the application exits.
 
 - todo items:
-- [] validate input as letters
-- [] validate if user has already guessed a letter
-- [] display incorrectly guessed letters
+- [ ] validate input as letters
+- [ ] validate if user has already guessed a letter
+- [ ] display incorrectly guessed letters
 
-## Built With
+## Built With:
 
 ### Languages
 
@@ -32,6 +32,24 @@ JavaScript, Node.js
 
 ## Authors
 
-- **Gerritt Black** - _Backend, API, Scripting/Everything_ - [gmocore](https://github.com/gmocore)
+- **Gerritt Black** - _Backend/Scripting_ - [gmocore](https://github.com/gmocore)
 
 # screenshots
+
+### start game 
+![start](/images/start.jpg)
+
+### make a guess
+![guess](images/make-guess.jpg)
+
+### correct guess
+![correct](images/correct-guess.jpg)
+
+### incorrect guess
+![incorrect](images/incorrect-guess.jpg)
+
+### correct word
+![](images/correct-word.jpg)
+
+### incorrect word
+![](images/incorrect-word.jpg)
